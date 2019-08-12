@@ -36,7 +36,7 @@ handler404 = 'blog.views.page_not_found_view'
 handler500 = 'blog.views.server_error_view'
 handle403 = 'blog.views.permission_denied_view'
 urlpatterns = [
-                  path('demo/', include('demoapp.urls')),
+                  path(r'demo/', include('demoapp.urls')),
                   url(r'^admin/', admin_site.urls),
                   url(r'', include('blog.urls', namespace='blog')),
                   url(r'mdeditor/', include('mdeditor.urls')),

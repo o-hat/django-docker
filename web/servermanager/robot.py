@@ -28,16 +28,19 @@ from servermanager.models import commands
 
 robot = WeRoBot(token='lylinux', enable_session=True)
 memstorage = MemcacheStorage()
-if memstorage.is_available:
-    robot.config['SESSION_STORAGE'] = memstorage
-else:
-    from werobot.session.filestorage import FileStorage
-    import os
-    from django.conf import settings
-
-    if os.path.exists(os.path.join(settings.BASE_DIR, 'werobot_session')):
-        os.remove(os.path.join(settings.BASE_DIR, 'werobot_session'))
-    robot.config['SESSION_STORAGE'] = FileStorage(filename='werobot_session')
+# TODO 在容器中会报错 不存在文件werobot_session 但是文件在容器中是存在的 可能是操作系统的原因
+# if memstorage.is_available:
+#     robot.config['SESSION_STORAGE'] = memstorage
+# else:
+#     from werobot.session.filestorage import FileStorage
+#     import os
+#     from django.conf import settings
+#
+#     if os.path.exists(os.path.join(settings.BASE_DIR, 'werobot_session')):
+#         print("=====================================")
+#         print(os.path.join(settings.BASE_DIR, 'werobot_session'))
+#         os.remove(os.path.join(settings.BASE_DIR, 'werobot_session'))
+#     robot.config['SESSION_STORAGE'] = FileStorage(filename='werobot_session')
 blogapi = BlogApi()
 tuling = TuLing()
 

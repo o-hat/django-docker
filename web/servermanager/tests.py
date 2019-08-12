@@ -1,3 +1,6 @@
+import os
+
+from django.conf import settings
 from django.test import Client, RequestFactory, TestCase
 from web.utils import get_current_site
 from .models import commands
@@ -8,7 +11,6 @@ from .robot import search, category, recents
 from werobot.messages.messages import TextMessage
 from .robot import MessageHandler, CommandHandler
 from servermanager.Api.commonapi import TuLing
-
 
 # Create your tests here.
 class ServerManagerTest(TestCase):
@@ -79,3 +81,15 @@ class ServerManagerTest(TestCase):
 
         s.content = 'exit'
         msghandler.handler()
+
+
+class SessionTypeTest(TestCase):
+
+    def test_01(self):
+        if os.path.exists(os.path.join(settings.BASE_DIR, 'werobot_session')):
+            print("==================yes===================")
+            print(os.path.join(settings.BASE_DIR, 'werobot_session'))
+            os.remove(os.path.join(settings.BASE_DIR, 'werobot_session'))
+        else:
+            print("=================no====================")
+        # robot.config['SESSION_STORAGE'] = FileStorage(filename='werobot_session')
