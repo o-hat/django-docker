@@ -20,7 +20,6 @@ lib64/
 parts/
 sdist/
 var/
-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
@@ -43,8 +42,7 @@ htmlcov/
 .cache
 nosetests.xml
 coverage.xml
-*.cover
-.hypothesis/
+*,cover
 
 # Translations
 *.mo
@@ -52,6 +50,46 @@ coverage.xml
 
 # Django stuff:
 *.log
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+
+# PyCharm
+# http://www.jetbrains.com/pycharm/webhelp/project.html
+.idea
+.iml
+
+
+migrations/
+!migrations/__init__.py
+collectedstatic/
+DjangoBlog/whoosh_index/
+google93fd32dbd906620a.html
+baidu_verify_FlHL7cUyC9.html
+BingSiteAuth.xml
+cb9339dbe2ff86a5aa169d28dba5f615.txt
+werobot_session
+django.jpg
+uploads/
+settings_production.py
+werobot_session.db
+
+
+# Byte-compiled / optimized / DLL files
+
+
+wheels/
+
+
+
+# Unit test / coverage reports
+*.cover
+.hypothesis/
+
 local_settings.py
 
 # Flask stuff:
@@ -61,11 +99,7 @@ instance/
 # Scrapy stuff:
 .scrapy
 
-# Sphinx documentation
-docs/_build/
 
-# PyBuilder
-target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
@@ -108,3 +142,5 @@ mysql/
 
 # static files for nginx
 staticfiles/
+
+.idea
