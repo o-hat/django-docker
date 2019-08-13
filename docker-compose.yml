@@ -11,8 +11,8 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=blog
-      - MYSQL_USER=blog # 直接使用root
-      - MYSQL_PASSWORD=blog
+#      - MYSQL_USER=blog # 直接使用root
+#      - MYSQL_PASSWORD=blog
 
   nginx:
     image: nginx:alpine
