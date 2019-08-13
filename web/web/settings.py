@@ -112,7 +112,7 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'mysql',  # 使用了docker 所以host必须为mysql
+        'HOST': 'mysql',  # 这个不明白为什么是能连接到数据库容器
         'PORT': '3306',
         'NAME': 'blog',
         'USER': 'root',

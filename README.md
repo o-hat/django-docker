@@ -27,6 +27,7 @@ If you want to access django admin site, please apply the django default migrati
 ```bash
 $ docker-compose exec web bash
 $ python manage.py migrate
+
 ```
 Then you need to create a superuser account:
 ```bash
@@ -40,14 +41,9 @@ You can check the Celery results from logs:
 ```bash
 $ docker-compose logs celery
 ```
-## Docker Images Reference
 
-| Name   | Image                              |
-| ------ | ---------------------------------- |
-| Nginx  | <https://hub.docker.com/_/nginx/>  |
-| MySQL  | <https://hub.docker.com/_/mysql/>  |
-| Redis  | <https://hub.docker.com/_/redis/>  |
-| Python | <https://hub.docker.com/_/python/> |
+## 部署上去的时候碰到的问题
+mysql无法连接： chown -R root:root ./
 
 
 ## 存在的问题
@@ -55,9 +51,6 @@ $ docker-compose logs celery
 1. session的问题 在代码中标记了TODO
 
 2. docker 开发环境和生产环境的自动切换
-
-3. docker的静态文件托管问题 nginx和web不在一个同一个容器 所以生成后的static文件 nginx不能托管 目前是直接本地先生成，然后直接把生成的整个目录让nginx托管。但是这样就没有意义了，本地还是要安装环境。
-这个问题解决了！ 因为python manage.py collectstatic 生成的文件夹 是宿主机上的文件夹 同时由nginx托管。
 
 4. UI的整理
 
