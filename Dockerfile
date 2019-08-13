@@ -4,5 +4,6 @@ RUN mkdir -p /data/web/
 RUN python -m pip install --upgrade pip
 WORKDIR /data/web/
 ADD requirements.txt /data/web/
-RUN pip install -r requirements.txt
+# 用国内的源
+RUN pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
 # ADD . /code/

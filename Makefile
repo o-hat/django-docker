@@ -35,4 +35,4 @@ log-db:
 	docker-compose logs mysql
 
 collectstatic:
-	docker exec web /bin/sh -c "python manage.py collectstatic --noinput"
+	 docker-compose exec web /bin/sh -c "python manage.py collectstatic --noinput"

@@ -10,7 +10,11 @@ $ git clone https://github.com/huchenw/django-docker.git
 Run docker-compose commands to start containers:
 ```bash
 $ docker-compose up -d
+CREATE DATABASE IF NOT EXISTS blog default charset utf8 COLLATE utf8_general_ci;
 ```
+
+
+
 Now you can access the application at <http://localhost> or <http://192.168.99.100>(Docker Toolbox).</br>
 ## Static Files
 To collect static files for nginx to access, just run:
