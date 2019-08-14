@@ -1,5 +1,9 @@
 # django-docker
+
+:sleepy: :yum: :mask: :sunglasses: :dizzy_face: :sweat: :hushed: :open_mouth: :rage4: :speak_no_evil: :baby:
+
 A complete example for deploying Django project with Nginx and MySQL on Docker.
+
 ## QuickStart
 Install Docker Engine from the tutorial <https://docs.docker.com/engine/installation/>.</br>
 Install Docker Compose from the tutorial <https://docs.docker.com/compose/install/>.</br>
@@ -11,6 +15,8 @@ Run docker-compose commands to start containers:
 ```bash
 $ docker-compose up -d
 CREATE DATABASE IF NOT EXISTS blog default charset utf8 COLLATE utf8_general_ci;
+# 测试库
+CREATE DATABASE IF NOT EXISTS test_blog default charset utf8 COLLATE utf8_general_ci;
 ```
 
 
@@ -49,11 +55,8 @@ mysql无法连接： chown -R root:root ./
 ## 存在的问题
 
 1. session的问题 在代码中标记了TODO
-
 2. docker 开发环境和生产环境的自动切换
-
 4. UI的整理
-
 5. 
 
 ## TODOLIST（8.12）

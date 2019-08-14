@@ -81,6 +81,7 @@ class ArticlelAdmin(admin.ModelAdmin):
         return form
 
     def save_model(self, request, obj, form, change):
+        # obj.body = form.data.get('id_body-wmd-wrapper-html-code', form.data.get("body"))
         super(ArticlelAdmin, self).save_model(request, obj, form, change)
 
     def get_view_on_site_url(self, obj=None):

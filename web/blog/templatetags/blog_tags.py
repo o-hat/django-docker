@@ -12,6 +12,7 @@
 @file: blog_tags.py
 @time: 2016/11/2 下午11:10
 """
+import re
 
 from django import template
 from django.db.models import Q
@@ -60,9 +61,33 @@ def datetimeformat(data):
 @register.filter(is_safe=True)
 @stringfilter
 def custom_markdown(content):
+    """
+    服务端渲染md文件 加上样式
+    :param content:
+    :return:
+    """
     from web.utils import CommonMarkdown
-    return mark_safe(CommonMarkdown.get_markdown(content))
+    md = CommonMarkdown.get_markdown(content)
 
+    # 不支持表情 添加表情支持 找了一些包 没找到
+    return mark_safe(_trans_github_emoji(md))
+
+def _trans_github_emoji(text):
+    """
+    将github的表情改成地址
+    :laugh: ==> img
+    :param str:
+    :return:
+    """
+    def repl(matched):
+        before_emoji_name = matched.group()
+        emoji_name = re.sub(r":", "", before_emoji_name)  # 去掉分号
+        return '<img src = "https://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/%s.png" class ="emoji" style="width:24px;height:24px;" title="%s" alt="%s" >' % (
+        emoji_name, before_emoji_name, before_emoji_name)
+
+    pattern = re.compile(r':([\w\+-]+):')
+    text = re.sub(pattern, repl, text)
+    return text
 
 @register.filter(is_safe=True)
 @stringfilter

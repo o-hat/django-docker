@@ -103,24 +103,37 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'web.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'HOST': 'mysql',  # 这个不明白为什么是能连接到数据库容器
+#         'PORT': '3306',
+#         'NAME': 'blog',
+#         'USER': 'root',
+#         'PASSWORD': 'root',
+#
+#     }
+# }
+
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'mysql',  # 这个不明白为什么是能连接到数据库容器
+        'HOST': 'localhost',  # 这个不明白为什么是能连接到数据库容器
         'PORT': '3306',
         'NAME': 'blog',
         'USER': 'root',
-        'PASSWORD': 'root',
-
+        'DEFAULT_CHARSET':'utf8',
+        'PASSWORD': '123456',
+        # 设置测试库的字符集 因为测试库都是自己创建的
+        'TEST': {
+            'CHARSET': 'utf8',
+            'COLLATION': 'utf8_general_ci',
+        }
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -139,8 +152,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-
 
 HAYSTACK_CONNECTIONS = {
     'default': {

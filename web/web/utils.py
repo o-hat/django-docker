@@ -166,7 +166,7 @@ class BlogMarkDownRenderer(mistune.Renderer):
         return '<a href="%s" title="%s" %s>%s</a>' % (link, title, nofollow, text)
 
 
-class CommonMarkdown():
+class CommonMarkdown(object):
     @staticmethod
     def get_markdown(value):
         renderer = BlogMarkDownRenderer(inlinestyles=False)

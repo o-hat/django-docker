@@ -178,3 +178,34 @@ class ArticleTest(TestCase):
     def test_errorpage(self):
         rsp = self.client.get('/eee')
         self.assertEqual(rsp.status_code, 404)
+
+
+class MdToHtmlTest(TestCase):
+
+    def test_to_html_with_emoji(self):
+        """
+        表情
+        # :blush: 转成下面这种
+        # < img src = "https://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/blush.png" class ="emoji" title=":blush:" alt=":blush:" >
+        # 转为 html 文本
+        :return:
+        """
+        import re
+        import codecs, markdown
+        # 读取 markdown 文本
+        input_file = codecs.open("C://Users//Administrator//Desktop//django-docker//README.md", mode="r", encoding="utf-8")
+        text = input_file.read()
+
+        def repl(matched):
+            before_emoji_name = matched.group()
+            emoji_name = re.sub(r":", "", before_emoji_name) # 去掉分号
+            return '<img src = "https://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/%s.png" class ="%s" title="%s" alt="%s" >' % (emoji_name,emoji_name,before_emoji_name,before_emoji_name)
+
+        pattern = re.compile(r':([\w\+-]+):')
+        text = re.sub(pattern, repl, text)
+
+        html = markdown.markdown(text)
+        # 保存为文件
+        output_file = codecs.open("C://Users//Administrator//Desktop//django-docker//output.html", mode="w", encoding="utf-8")
+        output_file.write(html)
+
