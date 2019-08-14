@@ -67,7 +67,7 @@ target/
 migrations/
 !migrations/__init__.py
 collectedstatic/
-DjangoBlog/whoosh_index/
+**/whoosh_index/** # 全文检索的文件
 google93fd32dbd906620a.html
 baidu_verify_FlHL7cUyC9.html
 BingSiteAuth.xml
