@@ -85,7 +85,7 @@ def _trans_github_emoji(text):
         return '<img src = "https://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/%s.png" class ="emoji" style="width:24px;height:24px;" title="%s" alt="%s" >' % (
         emoji_name, before_emoji_name, before_emoji_name)
 
-    pattern = re.compile(ur':([a-z][\w\+-]+):') # 字母开头 否则时间 12:03:23也算进去了
+    pattern = re.compile(r':([a-z][\w\+-]+):') # 字母开头 否则时间 12:03:23也算进去了
     text = re.sub(pattern, repl, text)
     return text
 
