@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -109,11 +108,11 @@ WSGI_APPLICATION = 'web.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'mysql',  # 这个不明白为什么是能连接到数据库容器
+        'HOST': 'localhost',  # mysql 这个不明白为什么是能连接到数据库容器
         'PORT': '3306',
-        'NAME': 'blog',
-        'USER': 'root',
-        'PASSWORD': 'root',
+        'NAME': 'blog',  # blog
+        'USER': 'root',  # root
+        'PASSWORD': '123456',  # root
     }
 }
 
