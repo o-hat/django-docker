@@ -21,6 +21,7 @@ services:
       - ./nginx/conf:/etc/nginx/conf.d
 #      - ./web/staticfiles:/django_static # 如果只挂载没有生成后的静态文件夹 那生成的静态文件根本没有被nginx处理
       - ./web/collectedstatic:/django_static
+      - ./nginx/ssl:/etc/nginx/ssl
     ports:
       - "80:80"
     depends_on:
