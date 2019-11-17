@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -45,7 +44,6 @@ CELERY_BROKER_URL = 'redis://redis:6379/0'
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin.apps.SimpleAdminConfig',
     'django.contrib.auth',
@@ -55,16 +53,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'accounts',
+    'oauth',
     'demoapp',
     'mdeditor',
     'haystack',
     'blog',
-    'accounts',
     'comments',
-    'oauth',
     'servermanager',
     'owntracks',
-    'compressor'
+    'compressor',
+
 ]
 
 MIDDLEWARE = [
