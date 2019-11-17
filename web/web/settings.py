@@ -109,30 +109,13 @@ WSGI_APPLICATION = 'web.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'mysql',  # 这个不明白为什么是能连接到数据库容器
+        'HOST': 'mysql',
         'PORT': '3306',
         'NAME': 'blog',
         'USER': 'root',
         'PASSWORD': 'root',
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'HOST': 'localhost',  # 这个不明白为什么是能连接到数据库容器
-#         'PORT': '3306',
-#         'NAME': 'blog',
-#         'USER': 'root',
-#         'DEFAULT_CHARSET':'utf8',
-#         'PASSWORD': '123456',
-#         # 设置测试库的字符集 因为测试库都是自己创建的
-#         'TEST': {
-#             'CHARSET': 'utf8',
-#             'COLLATION': 'utf8_general_ci',
-#         }
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
