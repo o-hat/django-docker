@@ -87,3 +87,11 @@ mysql无法连接： chown -R root:root ./
 4. mysql添加了配置文件
 5. 去除了https
 6. 数据库迁移文件加入版本管理、并且python manage.py makemigrations 后面要加app的lable!!!!(被这个恶心了几个小时)
+
+
+## TODOLIST
+
+1. 敏捷开发 持续集成 CI CD
+2. 表情的bug
+3. 邮件提醒
+4. seo
