@@ -138,7 +138,8 @@ ENV/
 .vscode/
 
 # db-data
-mysql/
+mysql/db
+ib_buffer_pool
 
 # static files for nginx
 staticfiles/

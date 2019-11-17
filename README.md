@@ -95,3 +95,4 @@ mysql无法连接： chown -R root:root ./
 2. 表情的bug
 3. 邮件提醒
 4. seo
+5. 整理数据
