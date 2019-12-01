@@ -96,3 +96,12 @@ mysql无法连接： chown -R root:root ./
 3. 邮件提醒
 4. seo
 5. 整理数据
+~~6. 搜索的bug~~
+
+
+## 不能搜索是要重新生成索引文件
+
+```bash
+docker exec container_id -it bash
+python manage.py rebuild_index
+```

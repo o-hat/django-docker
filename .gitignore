@@ -141,6 +141,9 @@ ENV/
 mysql/db
 ib_buffer_pool
 
+# search index
+web/web/whoosh_index/
+
 # static files for nginx
 staticfiles/
 
