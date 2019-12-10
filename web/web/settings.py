@@ -44,7 +44,6 @@ CELERY_BROKER_URL = 'redis://redis:6379/0'
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin.apps.SimpleAdminConfig',
     'django.contrib.auth',
@@ -54,16 +53,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'accounts',
+    'oauth',
     'demoapp',
     'mdeditor',
     'haystack',
     'blog',
-    'accounts',
     'comments',
-    'oauth',
     'servermanager',
     'owntracks',
-    'compressor'
+    'compressor',
+
 ]
 
 MIDDLEWARE = [
@@ -108,11 +108,11 @@ WSGI_APPLICATION = 'web.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'localhost',  # mysql 这个不明白为什么是能连接到数据库容器
+        'HOST': 'mysql',
         'PORT': '3306',
-        'NAME': 'blog',  # blog
-        'USER': 'root',  # root
-        'PASSWORD': '123456',  # root
+        'NAME': 'blog',
+        'USER': 'root',
+        'PASSWORD': 'root',
     }
 }
 

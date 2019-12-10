@@ -4,9 +4,13 @@ services:
   mysql:
     image: mysql:5.7
     volumes:
-      - ./mysql:/var/lib/mysql
-    expose:
-      - "3306"
+      - "./mysql/db:/var/lib/mysql"
+      - "./mysql/conf/my.cnf:/etc/my.cnf"
+      - "./mysql/init:/docker-entrypoint-initdb.d/"
+#    expose:
+#      - 3306
+    ports:
+      - "3306:3306"
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=root
@@ -21,7 +25,7 @@ services:
       - ./nginx/conf:/etc/nginx/conf.d
 #      - ./web/staticfiles:/django_static # 如果只挂载没有生成后的静态文件夹 那生成的静态文件根本没有被nginx处理
       - ./web/collectedstatic:/django_static
-      - ./nginx/ssl:/etc/nginx/ssl
+#      - ./nginx/ssl:/etc/nginx/ssl
     ports:
       - "80:80"
     depends_on:

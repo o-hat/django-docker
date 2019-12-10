@@ -59,12 +59,49 @@ mysql无法连接： chown -R root:root ./
 4. UI的整理
 5. 
 
-## TODOLIST（8.12）
+## 被恶心到了 
 
-- 博客从gitbook改用开源的vuepress 3天
-- 把以前的资料整理一下 对做过的项目进行总结 3天
-- 想好自己会什么 1天
-- 想好要什么 1天
-- 针对性复习 2天
-- 针对性完善简历 0.5天
-- 投简历 面试
+很久之前的代码，但是用数据库迁移的命令会报错，而且找不到是哪个表，太不好找bug了！！！！！！！！！
+
+把容器的数据导出来了 /data/blog.sql
+
+## 下一步  基于docker搞敏捷开发 慢慢把博客做好 然后把数据再整理一遍
+
+
+
+## python manage.py makemigrations 报错的问题
+
+因为没有对数据库迁移的文件进行版本管理，所以clone下的代码在执行python manage.py makemigrations会报没有改变
+然后执行migrate的时候就会报错，导致找了这么久的问题。！！！！！FUCK!!!!!
+这个命令执行，没有出现migrations文件夹的时候就纳闷了！！ 但是看执行结果并没有报错，就在找别的问题了！！！FUCK。
+
+数据迁移 不看源代码的划 太不好用了 吐槽一下
+
+还是用flask吧
+
+
+## bug解决了
+1. mysql容器添加了端口映射 连接数据库更加方便
+2. mysql备份上服务器的数据
+3. 数据库迁移的真的不好用
+4. mysql添加了配置文件
+5. 去除了https
+6. 数据库迁移文件加入版本管理、并且python manage.py makemigrations 后面要加app的lable!!!!(被这个恶心了几个小时)
+
+
+## TODOLIST
+
+1. 敏捷开发 持续集成 CI CD
+2. 表情的bug
+3. 邮件提醒
+4. seo
+5. 整理数据
+~~6. 搜索的bug~~
+
+
+## 不能搜索是要重新生成索引文件
+
+```bash
+docker exec container_id -it bash
+python manage.py rebuild_index
+```
