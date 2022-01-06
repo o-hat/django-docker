@@ -1,5 +1,5 @@
 uwsgi==2.0.18
-celery==4.3.0
+celery==5.2.2
 redis==3.3.6
 appdirs==1.4.3
 asn1crypto==0.24.0
